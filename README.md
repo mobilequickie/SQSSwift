@@ -1,28 +1,29 @@
 
 ## About
-This is starter iOS Swift 4.2 client for sending single and batch messages directly to Amazon SQS. It demonstrates the event-driven design pattern for using SQS as an event source to AWS Lambda. 
+This is starter iOS Swift 4.2 client for sending single and batch messages directly to Amazon SQS. It demonstrates the event-driven design pattern for using SQS as an event source to AWS Lambda and calling an AWS service as an unauthenticated mobile user using the AWS Amplify iOS SDK.
 
 The iOS client uses Amazon Cognito Identity Pool for authenticated/unauthenticated access for app users to send messages to said SQS queue.
 
 Check out my blog here to read more about SQS as an event source and deep dive into the inner workings of this architecture: https://medium.com/p/cb9b4215e8d3
 
-## PART 1 - Getting Started (BACKEND)
+## PART 1 - Get Started (BACKEND)
 I created a CloudFormation template that will provision: 
-1. A standard SQS queue
-2. A dead letter queue
-3. AWS Lambda function for handling messages
+1. A standard Amazon SQS queue
+2. A dead letter Amazon SQS queue
+3. An AWS Lambda function (Node.js 8) for handling messages
 4. Event source mapping
-5. Lambda execution permissions. 
+5. Lambda execution permissions.
+6. Amazon Cognito Identity Pool (with IAM roles)
 
 Click on the template to launch the CloudFormation console to begin building your stack. The template defaults to the US West Oregon region (us-west-2). Should only take about 2 minutes.
 
-1.	Click on the Launch Stack button
+* Click on the Launch Stack button to provision the resources in your AWS account
     
     [![Launch Stack](https://s3-us-west-2.amazonaws.com/mobilequickie/speechtranslator/launch-stack.svg)](https://console.aws.amazon.com/cloudformation/home?region=us-west-2#/stacks/new?stackName=my-sqs-event&templateURL=https://s3-us-west-2.amazonaws.com/mobilequickie/sqs-events/cf-templates/SQS-EventSource-LambdaHandler-CFTemplate-NodeJS.yaml)
 
-## PART 2 - Get Started (iOS Swift Client)
+## PART 2 - Get Started (iOS Swift CLIENT)
 
-In this part, we'll clone this repo, update Cocoapods, update the awsconfiguration.json file with your own backend Cognito Identity pool Id generated in PART 1, and update the ViewController.swift file with your SQS queue URL.
+In this part, we'll clone this repo, update Cocoapods, update the awsconfiguration.json file with your own backend Cognito Identity pool Id generated in PART 1, and update the ViewController.swift file with your SQS queue URL, also created in PART 1. Note: To see the outputs from CloudFormation, head to the [CloudFormation management console](https://console.aws.amazon.com/cloudformation/home?region=us-west-2), select your stack, and then choose the Output tab. Your outputs should look similar to the screenshot above.
 
 1. Download or clone this project
     ```
