@@ -21,9 +21,11 @@ Click on the template to launch the CloudFormation console to begin building you
     
     [![Launch Stack](https://s3-us-west-2.amazonaws.com/mobilequickie/speechtranslator/launch-stack.svg)](https://console.aws.amazon.com/cloudformation/home?region=us-west-2#/stacks/new?stackName=my-sqs-event&templateURL=https://s3-us-west-2.amazonaws.com/mobilequickie/sqs-events/cf-templates/SQS-EventSource-LambdaHandler-CFTemplate-NodeJS.yaml)
 
+**Note**: The stack creation will ask for your phone number as an optional parameter so that it'll automatically send you an SMS via SNS when a message arrives into the queue :) Your phone number is stored as a Lambda function environment variable.
+
 ## PART 2 - Get Started (iOS Swift CLIENT)
 
-In this part, we'll clone this repo, update Cocoapods, update the awsconfiguration.json file with your own backend Cognito Identity pool Id generated in PART 1, and update the ViewController.swift file with your SQS queue URL, also created in PART 1. Note: To see the outputs from CloudFormation, head to the [CloudFormation management console](https://console.aws.amazon.com/cloudformation/home?region=us-west-2), select your stack, and then choose the Output tab. Your outputs should look similar to the screenshot above.
+In this part, we'll clone this repo, update Cocoapods, update the awsconfiguration.json file with your own backend Cognito Identity pool Id generated in PART 1, and update the ViewController.swift file with your SQS queue URL, also created in PART 1. Note: To see the outputs from CloudFormation, head to the [CloudFormation management console](https://console.aws.amazon.com/cloudformation/home?region=us-west-2), select your stack, and then choose the Output tab.
 
 1. Download or clone this project
     ```
@@ -62,5 +64,3 @@ In this part, we'll clone this repo, update Cocoapods, update the awsconfigurati
 - [Cocoapods](https://github.com/CocoaPods/CocoaPods) 1.5.0 +
 - iOS 11.0+ / Mac OS X 10.13+
 - Xcode 10.0+
-
-
