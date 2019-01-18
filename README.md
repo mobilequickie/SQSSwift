@@ -3,8 +3,7 @@
 This is starter iOS Swift 4.2 client for sending single and batch messages directly to Amazon SQS. It demonstrates the event-driven design pattern for using SQS as an event source to AWS Lambda. The "Launch Stack" button in Part 1 will deploy and configure the necessary backend resources. Part 2 is this client app connecting to the backend resources via the [AWS SDK for iOS](https://aws-amplify.github.io/docs/ios/manualsetup#direct-aws-service-access).
 
 Check out my blog below to read more about SQS as an event source and deep dive into the inner workings of this architecture: 
-
-[![DZone Blog](https://s3-us-west-2.amazonaws.com/mobilequickie/sqs-events/bannerimage.png)](https://dzone.com/articles/amazon-sqs-as-an-event-source-to-aws-lambda-a-deep)
+<p align="center"><a href="https://dzone.com/articles/amazon-sqs-as-an-event-source-to-aws-lambda-a-deep"><img src="https://s3-us-west-2.amazonaws.com/mobilequickie/sqs-events/bannerimage.png" alt="blog banner" width="450"></a></p>
 
 ## PART 1 - Get Started (BACKEND)
 I created a CloudFormation template that will provision: 
@@ -51,7 +50,8 @@ In this part, we'll clone this repo, update Cocoapods, update the awsconfigurati
     $ open SQSSwift.xcworkspace
     ``` 
 
-4. Update the *awsconfiguration.json* file with YOUR Cognito Identity Pool Id and AWS region.
+4. Update the *awsconfiguration.json* file with YOUR Cognito Identity Pool Id and AWS region. Shown as `CognitoIdentityPoolId` in the output tab of the CloudFormation stack created in Step 1.
+![Cognito Idenity Pool Id](https://s3-us-west-2.amazonaws.com/mobilequickie/sqs-events/cognito-identity-pool-id.jpg)
     ```json
     "CredentialsProvider": {
         "CognitoIdentity": {
@@ -63,10 +63,14 @@ In this part, we'll clone this repo, update Cocoapods, update the awsconfigurati
     },
     ```
 
-5. Change the string value in the *ViewController.swift* file to match YOUR Amazon SQS SourceSQSQueueURL value that was created by the CloudFormation template in STEP 1 and shown in the OUTPUT tab in the [CloudFormation management console](https://console.aws.amazon.com/cloudformation/home?region=us-west-2).
+5. Change the string value in the *ViewController.swift* file to match YOUR Amazon SQS queue. Shown as `SourceSQSQueueURL` in the output tab of the CloudFormation stack created in Step 1.
+![Source SQS Queue](https://s3-us-west-2.amazonaws.com/mobilequickie/sqs-events/source-sqs-queue-url.jpg)
+
     ```swift
     let myQueueURL: String = "<YOUR-SQS-SOURCE-QUEUE-URL-HERE>"
     ```
+## Build and run the app
+
 ## Requirements
 - [Cocoapods](https://github.com/CocoaPods/CocoaPods) 1.5.0 +
 - iOS 11.0+ / Mac OS X 10.13+
