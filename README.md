@@ -22,7 +22,8 @@ Click on the template to launch the CloudFormation console to begin building you
 
 **Note**: The stack creation will ask for your phone number as an optional parameter so that it'll automatically send you an SMS via SNS when a message arrives into the queue :) Your phone number is stored as a Lambda function environment variable.
 
-`Quick Test`: Use the following AWS CLI command (replace _SourceSQSQueueURL_ with the SourceSQSQueueURL output of the stack results from above) to immediately test that new messages sent directly to SQS are getting picked up by your Lambda function. If you provided a valid E.164 formatted mobile number, you should see an SMS text messages with "Test message from AWS CLI" send from an Amazon SNS phone number.
+`Quick Test`: Use the following AWS CLI command (replace _SourceSQSQueueURL_ with the SourceSQSQueueURL output of the stack results from above) to immediately test that new messages sent directly to SQS are getting picked up by your Lambda function. If you provided a valid E.164 formatted mobile number, you should see an SMS text messages with "Test message from AWS CLI" sent from an Amazon SNS phone number.
+![Source SQS Queue](https://s3-us-west-2.amazonaws.com/mobilequickie/sqs-events/source-sqs-queue-url.jpg)
 
 ```bash
 $ aws sqs send-message --queue-url <SourceSQSQueueURL>
