@@ -7,7 +7,7 @@
     "CredentialsProvider": {
         "CognitoIdentity": {
             "Default": {
-                "PoolId": "<YOUR-AMAZON-COGNITO-IDENTITY-POOL-ID-HERE>",
+                "PoolId": "<YOUR-IDENTITY-POOL-ID-HERE>",
                 "Region": "us-west-2"
             }
         }

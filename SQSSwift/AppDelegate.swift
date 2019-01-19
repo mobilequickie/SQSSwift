@@ -2,9 +2,10 @@
 //  AppDelegate.swift
 //  SQSSwift
 //
-//  Created by Hills, Dennis on 1/14/19.
+//  Created by Hills, Dennis on 1/18/19.
 //  Copyright © 2018 Hills, Dennis. All rights reserved.
 //
+//  See my deep dive blog into SQS as an event source: https://dzone.com/articles/amazon-sqs-as-an-event-source-to-aws-lambda-a-deep
 
 import UIKit
 import AWSMobileClient
@@ -16,8 +17,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         
-        AWSDDLog.sharedInstance.logLevel = .verbose
+        // AWS SDK logging and debugging
+        AWSDDLog.sharedInstance.logLevel = .debug // set to .off for production
+        AWSDDLog.add(AWSDDTTYLogger.sharedInstance) // Log to console (TTY = Xcode console)
         
+        // Initialize the AWSMobileClient (used for identity management by AWS SDK)
         AWSMobileClient.sharedInstance().initialize { (userState, error) in
             if let userState = userState {
                 print("UserState: \(userState.rawValue)")
